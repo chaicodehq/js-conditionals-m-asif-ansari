@@ -2,7 +2,7 @@
  * 📝 Ms. Parker's Report Cards
  *
  * Ms. Parker teaches 8th-grade science and needs help converting
- * percentage scores into letter grades for report cards. She also
+ * percentscore scores into letter grades for report cards. She also
  * rewards students who earned extra credit by adding 5 bonus points
  * to their score — but the final score can never go above 100.
  *
@@ -20,10 +20,30 @@
  *     (cap the result at 100)
  *   - Then determine the letter grade from the adjusted score
  *
- * @param {number} score - The student's percentage score (0-100)
+ * @param {number} score - The student's percentscore score (0-100)
  * @param {boolean} hasExtraCredit - Whether the student has extra credit
  * @returns {string} The letter grade or "INVALID"
  */
 export function calculateGrade(score, hasExtraCredit) {
-  // Your code here
+  if (score < 0 | score > 100) {
+    return "INVALID"
+  }
+  if (hasExtraCredit){
+    score += 5
+    if (score > 100){
+    score = 100
+    }
+  }
+
+  if (score >= 0 & score <= 59) {
+    return "F" 
+  } else if (score >= 60 & score <= 69) {
+    return "D"
+  } else if (score >= 70 & score <= 79) {
+    return "C"
+  } else if (score >= 80 & score <= 89) {
+    return "B"
+  } else if (score >= 90 & score <= 100) {
+    return "A"
+  }
 }
